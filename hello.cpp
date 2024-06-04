@@ -67,7 +67,6 @@ LL *deleteLastNode(LL *head)
 
     free(head);
     newLastNode->next = NULL;
-
     return test;
 }
 
@@ -271,7 +270,7 @@ int main()
 
                     if (flag == true)
                     {
-                        deleteMiddleNode(head, rep);
+                        head = deleteMiddleNode(head, rep);
                         printLL(head);
                     }
                 }
