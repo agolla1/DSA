@@ -59,7 +59,8 @@ void getIndex(const vector<string>& vec, const string& K) {
     }
 }
 
-int main() {
+int main() 
+{
     int opt;
     int mainNum;
     vector<int> intVec;
@@ -67,39 +68,46 @@ int main() {
     bool flag = false;
     bool mainFlag = false;
 
-    while (!mainFlag) {
-        while (!flag) {
+    while (!mainFlag) // Is this an issue 
+    {
+        while (!flag) 
+        {
             cout << "WHICH DATA TYPE WOULD YOU LIKE YOUR VECTOR TO BE?" << endl;
             cout << "1. INTEGER (TYPE 1 FOR THIS OPTION)" << endl;
             cout << "2. STRING (TYPE 2 FOR THIS OPTION)" << endl;
             cin >> opt;
 
-            if (opt == 1) {
+            if (opt == 1) 
+            {
                 int num;
                 int ele = 1;
                 int val;
                 cout << "PLEASE TYPE THE NUMBER OF ELEMENTS YOU WANT IN YOUR VECTOR!" << endl;
                 cin >> num;
 
-                for (int i = 0; i < num; ++i) {
+                for (int i = 0; i < num; ++i) 
+                {
                     cout << "PLEASE TYPE YOUR DESIRED INTEGER FOR ELEMENT: " + to_string(ele) << endl;
                     cin >> val;
                     intVec.push_back(val);
                     ele++;
                 }
 
-                mainNum = num;
-                printVectorArr(intVec);
-                flag = true;
+                mainNum = num; 
+                printVectorArr(intVec);// why does it not print this
+                break;
         
-            } else if (opt == 2) {
+            } 
+            else if (opt == 2) 
+            {
                 int num;
                 int ele = 1;
 
                 cout << "PLEASE TYPE THE NUMBER OF ELEMENTS YOU WANT IN YOUR VECTOR!" << endl;
                 cin >> num;
 
-                for (int i = 0; i < num; ++i) {
+                for (int i = 0; i < num; ++i) 
+                {
                     string word;
                     cout << "PLEASE TYPE YOUR DESIRED WORD FOR ELEMENT: " + to_string(ele) << endl;
                     cin >> word;
@@ -108,14 +116,15 @@ int main() {
                 }
 
                 mainNum = num;
-                printVectorArr(strVec);
-                flag = true;
-
-            } else {
+                printVectorArr(strVec);// why does it not print this
+                break;
+            } 
+            else 
+            {
                 cout << "****************************************************" << endl;
                 cout << " !!!ERROR PLEASE TRY AGAIN NOT A VALID OPTION!!! " << endl;
                 cout << "****************************************************" << endl;
-                flag = false;
+                flag = false;// is this wrong?
             }
         }
 
@@ -125,24 +134,29 @@ int main() {
         cout << "TYPE \"YES\" OR \"NO\" AND HIT ENTER" << endl;
         cin >> pick;
 
-        while (!flagRS) {
+        while (!flagRS) 
+        {
             if (pick == "YES" || pick == "yes") { // why does this not pick up the lower case form
-                if (opt == 1) {
+                if (opt == 1) 
+                {
                     rightShift(intVec, mainNum);
                     printVectorArr(intVec);
-                    flagRS = true;
+                    break;
                 } 
-                else if (opt == 2) {
+                else if (opt == 2) 
+                {
                     rightShift(strVec, mainNum);
                     printVectorArr(strVec);
-                    flagRS = true;
+                    break;
                 }
             } 
-            else if (pick == "NO" || pick == "no") {
+            else if (pick == "NO" || pick == "no") 
+            {
                 cout << "NO RIGHT SHIFT" << endl;
-                flagRS = true;
+                break;
             } 
-            else {
+            else 
+            {
                 cout << "****************************************************" << endl;
                 cout << " !!!ERROR PLEASE TRY AGAIN NOT A VALID OPTION!!! " << endl;
                 cout << "****************************************************" << endl;
@@ -152,32 +166,37 @@ int main() {
 
 
         bool flagEX = false;
-        while (!flagEX) {
+        while (!flagEX) 
+        {
             int optEX;
             cout << "WOULD YOU LIKE TO EXPLORE ANY OF THESE OPTIONS?" << endl;
             cout << "1. SEARCH THE INDEX OF YOUR CHOICE" << endl;
             cin >> optEX;
 
-            if (optEX == 1) {
-                if (opt == 1) {
+            if (optEX == 1) 
+            {
+                if (opt == 1) 
+                {
                     printVectorArr(intVec);
                     int req;
                     cout << "WHICH NUMBER'S INDEX WOULD YOU LIKE TO KNOW FROM YOUR VECTOR ABOVE?" << endl;
                     cin >> req;
                     getIndex(intVec, req);
-                    flagEX = true;
-                } else if (opt == 2) {
+                    break;
+                } 
+                else if (opt == 2) {
                     string req;
                     printVectorArr(strVec);
                     cout << "WHICH WORD'S INDEX WOULD YOU LIKE TO KNOW FROM YOUR VECTOR ABOVE?" << endl;
                     cin >> req;
                     getIndex(strVec, req);
-                    flagEX = true;
-                } else {
+                    break;
+                } 
+                else {
                     cout << "****************************************************" << endl;
                     cout << " !!!ERROR PLEASE TRY AGAIN NOT A VALID OPTION!!! " << endl;
                     cout << "****************************************************" << endl;
-                    flagEX = false;
+                    flagEX = false;// no idea why it isnt going back to the top
                 }
             }
             
@@ -186,19 +205,22 @@ int main() {
             cout << "THANK YOU FOR USING MY SIMULATOR!!! \nWOULD YOU LIKE TO START AGAIN?" << endl;
             cin >> finalOpt;
 
-            if (finalOpt == "YES" || finalOpt == "yes") {
+            if (finalOpt == "YES" || finalOpt == "yes") 
+            {
                 cout << "SURE, LET'S START AGAIN!" << endl;
                 intVec.clear();
                 strVec.clear();
-                flag = false;
+                mainFlag = false;
             } 
-            else if (finalOpt == "NO" || finalOpt == "no") {
-                mainFlag = true;
-            } 
-            else {
+            else if (finalOpt == "NO" || finalOpt == "no") 
+            {
                 break;
+            } 
+            else 
+            {
+                mainFlag = true;
             }
-        cout << "THANKS FOR USING!!!" << endl;
+        cout << "THANKS FOR USING!!!" << endl;// please make changes
     }
     return 0;
 }
