@@ -65,12 +65,12 @@ int main()
     int mainNum;
     vector<int> intVec;
     vector<string> strVec;
-    bool flag = false;
-    bool mainFlag = false;
+    bool flag = true;
+    bool mainFlag = true;
 
-    while (!mainFlag) // Is this an issue 
+    while (mainFlag) // Is this an issue 
     {
-        while (!flag) 
+        while (flag) 
         {
             cout << "WHICH DATA TYPE WOULD YOU LIKE YOUR VECTOR TO BE?" << endl;
             cout << "1. INTEGER (TYPE 1 FOR THIS OPTION)" << endl;
@@ -92,7 +92,7 @@ int main()
                     intVec.push_back(val);
                     ele++;
                 }
-
+                
                 mainNum = num; 
                 printVectorArr(intVec);// why does it not print this
                 break;
@@ -210,7 +210,7 @@ int main()
                 cout << "SURE, LET'S START AGAIN!" << endl;
                 intVec.clear();
                 strVec.clear();
-                mainFlag = false;
+                mainFlag = true;
             } 
             else if (finalOpt == "NO" || finalOpt == "no") 
             {
@@ -218,7 +218,7 @@ int main()
             } 
             else 
             {
-                mainFlag = true;
+                mainFlag = false;
             }
         cout << "THANKS FOR USING!!!" << endl;// please make changes
     }
