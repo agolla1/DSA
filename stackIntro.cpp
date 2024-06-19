@@ -54,7 +54,7 @@ bool isEmpty(int arr[])
         return false;
     }
 }
-
+//
 int sizeOf(int arr[])
 {
     printIt(arr);
