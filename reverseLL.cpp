@@ -40,9 +40,14 @@ void printLL(ListNode *head)
     ListNode *temp = head;
     cout << "[";
     while (temp)
-    {
+    {   
+        if (temp -> next == NULL){
+            int x = temp->val;
+            cout << x;
+            break;
+        }
         int x = temp->val;
-        cout << x;
+        cout << x << ", ";
         temp = temp->next;
     }
     cout << "]";
@@ -64,7 +69,6 @@ int main()
     node4 -> next = node5;
     node5 -> next = node6;
     node6 -> next = node7;
-    node7 -> next = node2;
 
     ListNode* output = reverseList(node1);
     printLL(output);
