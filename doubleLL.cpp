@@ -1,17 +1,10 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby,
-  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
-  Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <stdio.h>
 #include <iostream>
 using namespace std;
 
 class node
 {
+    public:
     int runs;
     string name;
     node *prev;
@@ -39,17 +32,17 @@ class doubleLL
     }
 };
 
-doubleLL insertBegining(doubleLL *head, doubleLL *insertNode){
-    doubleLL *saveHead = head;
+node* insertBegining(node *head, node *insertNode){
+    node *saveHead = head;
     insertNode -> next = head;
     head -> prev = insertNode;
 
     head = insertNode;
 }
 
-void printLL(doubleLL *head)
+void printLL(node *head)
 {
-    doubleLL *temp = head;
+    node *temp = head;
     while (temp)
     {
         int x = temp->runs;
@@ -58,13 +51,13 @@ void printLL(doubleLL *head)
     }
 }
 
-doubleLL *deleteFirstNode(doubleLL *head)
+node *deleteFirstNode(node *head)
 {
     if (head == NULL)
     {
         return NULL;
     }
-    doubleLL *test = head->next;
+    node *test = head->next;
     head->next = NULL;
     free(head);
     return test;
