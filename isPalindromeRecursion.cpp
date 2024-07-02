@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int isPalindrome(string temp) {
+int isPalindrome(string temp, int n) {
     int n = temp.size();
     if (n <= 1) {
         return 1;
@@ -17,7 +17,7 @@ int isPalindrome(string temp) {
 int main() 
 {
     string temp = "racecar";
-    if (isPalindrome(temp)) {
+    if (isPalindrome(temp, 0)) {
         cout << "The array is a palindrome." << endl;
     } else {
         cout << "The array is not a palindrome." << endl;
